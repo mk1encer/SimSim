@@ -5,7 +5,7 @@ const settings = { timestampsInSnapshots: true };
 
 const config = {
   projectId: "simsim-1618a",
-  apiKey: "32178958601",
+  apiKey: "AIzaSyCj8JkGlqZtCJarIxWN9d7OK4cJ8AoCsoM",
   databaseURL: "https://simsim-1618a-default-rtdb.firebaseio.com",
 };
 
