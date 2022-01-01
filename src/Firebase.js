@@ -4,9 +4,9 @@ import firestone from "firebase/firesore";
 const settings = { timestampsInSnapshots: true };
 
 const config = {
-  projectId: "YOUR_FIREBASE_PROJECT_ID",
-  apiKey: "YOUR_API_KEY",
-  databaseURL: "YOUR_DATABASE_URL",
+  projectId: "simsim-1618a",
+  apiKey: "32178958601",
+  databaseURL: "https://simsim-1618a-default-rtdb.firebaseio.com",
 };
 
 firebase.initializeApp(config);
