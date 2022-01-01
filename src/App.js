@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Redirect,
+  Navigate,
   useLocation,
 } from "react-router-dom";
 import Login from "./components/Login";
@@ -20,7 +20,7 @@ function SecureRoute({ children, ...rest }) {
         localStorage.getItem("nickname") ? (
           children
         ) : (
-          <Redirect
+          <Navigate
             to={{
               pathname: "/login",
               state: { from: location },
@@ -38,13 +38,13 @@ function App() {
   return (
     <Router>
       <div>
-        <Redirect
+        <Navigate
           to={{
             pathname: "./roomlist",
             state: { from: location },
           }}
         />
-        <switch>
+        <Routes>
           <Route path="/login">
             <Login />
           </Route>
@@ -57,7 +57,7 @@ function App() {
           <SecureRoute path="/chatroom/:room">
             <ChatRoom />
           </SecureRoute>
-        </switch>
+        </Routes>
       </div>
     </Router>
   );
