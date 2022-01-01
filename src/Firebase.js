@@ -1,16 +1,19 @@
-import * as firebase from "firebase";
-import firestore from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore/lite";
 
 const settings = { timestampsInSnapshots: true };
 
-const config = {
-  projectId: "simsim-1618a",
+const firebaseConfig = {
   apiKey: "AIzaSyCj8JkGlqZtCJarIxWN9d7OK4cJ8AoCsoM",
+  authDomain: "simsim-1618a.firebaseapp.com",
   databaseURL: "https://simsim-1618a-default-rtdb.firebaseio.com",
+  projectId: "simsim-1618a",
+  storageBucket: "simsim-1618a.appspot.com",
+  messagingSenderId: "32178958601",
+  appId: "1:32178958601:web:9729dd1ae2ced6c386a3d8",
 };
 
-firebase.initializeApp(config);
-
-firebase.firestone().settings(settings);
+const firebaseApp = initializeApp(firebaseConfig);
+const firebase = getFirestore(firebaseApp);
 
 export default firebase;
