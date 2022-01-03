@@ -1,11 +1,5 @@
 import { initializeApp } from "firebase/app";
-<<<<<<< HEAD
 
-=======
-import { getFirestore } from "firebase/firestore/lite";
-
-const settings = { timestampsInSnapshots: true };
->>>>>>> 3457dc6a78d81957766d31741043c3eb501c2429
 
 const firebaseConfig = {
   apiKey: "AIzaSyCj8JkGlqZtCJarIxWN9d7OK4cJ8AoCsoM",
@@ -18,10 +12,4 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
-<<<<<<< HEAD
 export const auth = firebaseApp.auth;
-=======
-const firebase = getFirestore(firebaseApp);
-
-export default firebase;
->>>>>>> 3457dc6a78d81957766d31741043c3eb501c2429
