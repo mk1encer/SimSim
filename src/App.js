@@ -1,5 +1,6 @@
 import React,{useEffect} from "react";
 import {Routes,Route} from "react-router-dom";
+import Header from "./components/Header";
 import Login from "./components/Login";
 import RoomList from "./components/RoomList";
 import AddRoom from "./components/AddRoom";
@@ -9,9 +10,10 @@ import SignUp from "./components/SignUp";
 function App() {
 
   return (
-      <div>
+        <div>
+        <Header/>
         <Routes>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/" element={<Login/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/roomlist" element={<RoomList/>}/>
           <Route path="/addroom" element={<AddRoom/>}/>
