@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import {Routes,Route} from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
@@ -7,13 +7,12 @@ import AddRoom from "./components/AddRoom";
 import ChatRoom from "./components/ChatRoom";
 import SignUp from "./components/SignUp";
 
-function App() {
-
+export default function App() {
   return (
-        <div>
+      <div>
         <Header/>
         <Routes>
-          <Route path="/" element={<Login/>}/>
+          <Route exact path="/" element={<Login/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/roomlist" element={<RoomList/>}/>
           <Route path="/addroom" element={<AddRoom/>}/>
@@ -22,5 +21,3 @@ function App() {
       </div>
   );
 }
-
-export default App;
