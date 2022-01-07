@@ -1,0 +1,16 @@
+.buttonLogout{
+    background-color: #fa8eae;
+    border:none;
+    border-radius: 5px;
+    width:5%;
+    height:26px;
+    font-size: 8pt;
+    margin-right:100px;
+    margin-top:-25px;
+    float:right;
+}
+.link{
+    text-decoration: none;
+    color:white;
+
+}
