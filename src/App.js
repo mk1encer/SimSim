@@ -1,29 +1,25 @@
-import React, { useReducer, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import RoomList from "./components/RoomList";
-import AddRoom from "./components/AddRoom";
 import ChatRoom from "./components/ChatRoom";
 import SignUp from "./components/SignUp";
-import { auth } from "./Firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import { PrivateRoute } from "./components/Auth";
+import { PrivateRoute,PublicRoute } from "./components/Auth";
 
 export default function App() {
-  let navigate = useNavigate();
-
   return (
     <div>
       <Header />
       <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<PublicRoute />}>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Route>
         <Route path="/" element={<PrivateRoute />}>
           <Route path="/roomlist" element={<RoomList />} />
+          <Route path="/chatroom/:room" element={<ChatRoom />} />
         </Route>
-        <Route path="/addroom" element={<AddRoom />} />
-        <Route path="/chatroom/:room" element={<ChatRoom />} />
       </Routes>
     </div>
   );

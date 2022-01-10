@@ -1,12 +1,12 @@
 import React from "react";
-import Logout from "./Logout";
+import AddRoom from "./AddRoom";
 
 export default function RoomList() {
-    return(
-        <div>
-            <Logout/>       
-            <br></br>
-            <h2>ROOMLIST다.</h2>
-        </div>
+    return (
+      <div>
+          <AddRoom/>
+        <h5>roomlist</h5>
+      </div>
     );
-}
+  }
+  

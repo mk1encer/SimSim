@@ -1,11 +1,11 @@
-import { auth, loggedin } from "../Firebase";
+import { auth } from "../Firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { Link, Route, Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 export function signUp(email, password) {
@@ -42,5 +42,28 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
     <Outlet />
   ) : (
     <Navigate to="/" />
+  );
+};
+
+export const PublicRoute = ({ component: Component, ...rest }) => {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [loadingAuth, setLoadingAuth] = useState(true);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthenticated(true);
+      } else {
+        setAuthenticated(false);
+      }
+      setLoadingAuth(false);
+    });
+  }, []);
+  return loadingAuth ? (
+    "loading..."
+  ) : authenticated ? (
+    <Navigate to="/roomlist" />
+  ) : (
+    <Outlet />
   );
 };
