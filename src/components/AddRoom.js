@@ -40,7 +40,7 @@ export default class AddRoom extends Component {
   };
   renderChatRooms = (chatRooms) =>
     chatRooms.length > 0 &&
-    chatRooms.map((room) => <li key={room.id}>&nbsp;&nbsp;# {room.name}</li>);
+    chatRooms.map((room) => <li style={{textAlign:"left"}} key={room.id}>&nbsp;&nbsp;&nbsp;> {room.name}</li>);
 
   async addChatRoom() {
     const key = push(this.state.chatRoomsRef).key;
@@ -77,10 +77,10 @@ export default class AddRoom extends Component {
           }}
         >
           &nbsp;&nbsp;
-          <FaApple style={{ marginRight: 3 }} />
-          CHAT ROOMS (1)
+          <FaApple style={{ marginRight: 3,fontSize:18 }} />
+          채팅방 목록 (1)
           <FaPlus
-            style={{ position: "absolute", left: 160, cursor: "pointer" }}
+            style={{ position: "absolute", left: 140, cursor: "pointer" }}
             onClick={this.handleShow}
           />
         </div>
@@ -108,7 +108,7 @@ export default class AddRoom extends Component {
             </Button>
           </Modal.Footer>
         </Modal>
-        <ul style={{ float: "left", listStyleType: "none", padding: 0 }}>
+        <ul style={{ listStyleType: "none",float:"left",padding: 0 }}>
           {this.renderChatRooms(this.state.chatRooms)}
         </ul>
       </div>
