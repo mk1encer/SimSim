@@ -22,7 +22,7 @@ export default function Login() {
     if (email !== "" && password !== "") {
       try {
         await signIn(email, password).then((res) => {
-          document.location.href = "/ROOMLIST";
+          document.location.href = "/RoomList";
         });
       } catch (error) {
         alert("이메일과 비밀번호를 다시 입력하세요.");
