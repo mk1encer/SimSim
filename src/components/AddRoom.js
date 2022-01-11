@@ -15,6 +15,7 @@ export default class AddRoom extends Component {
     name: "",
     chatRoomsRef: ref(db, "/chatRooms"),
     chatRooms: [],
+    selectedRoom: null,
   };
 
   handleClose = () => this.setState({ show: false });
@@ -43,6 +44,7 @@ export default class AddRoom extends Component {
 
   renderChattings = (chatRoom) => {
     console.log(`chattings in ${chatRoom}`);
+    this.setState({ selectedRoom: chatRoom });
   };
 
   renderChatRooms = (chatRooms) =>
@@ -103,7 +105,7 @@ export default class AddRoom extends Component {
               }}
             >
               &nbsp;&nbsp;
-              <FaApple style={{ marginRight: 3, fontSize: 18 }} />
+              <FaApple style={{ marginRight: 3, fontSize: 13 }} />
               채팅방 목록 ({this.state.chatRooms.length})
               <FaPlus style={{ cursor: "pointer" }} onClick={this.handleShow} />
             </div>
@@ -135,10 +137,20 @@ export default class AddRoom extends Component {
               {this.renderChatRooms(this.state.chatRooms)}
             </ul>
           </div>
-          <div style={{ backgroundColor: "gray", flex: "1" }}>
-            채팅방을 선택하세요
+          <div
+            style={{
+              backgroundColor: "gray",
+              flex: "1",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            {this.state.selectedRoom === null ? (
+              <div>채팅방을 선택하세요</div>
+            ) : (
+              <ChatRoom name={this.state.selectedRoom} />
+            )}
             {/* roomname이 선택되면 그에 따른 채팅방을 렌더링해야함 */}
-            {/*comp*/}
           </div>
         </div>
       </div>
