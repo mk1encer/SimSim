@@ -63,7 +63,7 @@ input:focus, input:not(:placeholder-shown){
     outline:none;
 }
 button{
-    background-color: #fa8eae;
+    background-color: #ffadc1;
     border:none;
     color:white;
     border-radius: 5px;
