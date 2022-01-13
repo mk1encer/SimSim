@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import Logout from "./Logout";
 import { db, auth } from "../Firebase";
-import { ref, push, update, child, onChildAdded } from "firebase/database";
+import {
+  ref,
+  push,
+  update,
+  child,
+  onChildAdded,
+  onValue,
+} from "firebase/database";
 import { FaApple } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
@@ -16,6 +23,7 @@ export default class AddRoom extends Component {
     chatRoomsRef: ref(db, "/chatRooms"),
     chatRooms: [],
     selectedRoom: null,
+    roomid: "",
   };
 
   handleClose = () => this.setState({ show: false });
@@ -44,14 +52,20 @@ export default class AddRoom extends Component {
 
   renderChattings = (chatRoom) => {
     console.log(`chattings in ${chatRoom}`);
-    this.setState({ selectedRoom: chatRoom });
+    this.setState({ selectedRoom: chatRoom }); //roomname이 정해졌음.
+
+    for (let i in this.state.chatRooms) {
+      if (this.state.chatRooms[i].name === chatRoom) {
+        this.setState({ roomid: this.state.chatRooms[i].id });
+      }
+    }
   };
 
   renderChatRooms = (chatRooms) =>
     chatRooms.length > 0 &&
     chatRooms.map((room) => (
-      <li 
-        style={{ textAlign: "left",cursor:"pointer" }}
+      <li
+        style={{ textAlign: "left", cursor: "pointer" }}
         key={room.id}
         onClick={() => {
           this.renderChattings(room.name);
@@ -81,7 +95,6 @@ export default class AddRoom extends Component {
   }
 
   render() {
-
     return (
       <div>
         <br />
@@ -103,7 +116,9 @@ export default class AddRoom extends Component {
                 alignItems: "center",
               }}
             >
-              &nbsp;&nbsp;<br/><br/>
+              &nbsp;&nbsp;
+              <br />
+              <br />
               <FaApple style={{ marginRight: 3, fontSize: 13 }} />
               채팅방 목록 ({this.state.chatRooms.length})&nbsp;
               <FaPlus style={{ cursor: "pointer" }} onClick={this.handleShow} />
@@ -115,7 +130,8 @@ export default class AddRoom extends Component {
               <Modal.Body>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId="formBasicEmail">
-                    <Form.Control style={{textAlign:"left"}}
+                    <Form.Control
+                      style={{ textAlign: "left" }}
                       onChange={(e) => this.setState({ name: e.target.value })}
                       type="text"
                       placeholder="Enter a chat room name"
@@ -127,7 +143,11 @@ export default class AddRoom extends Component {
                 <Button variant="secondary" onClick={this.handleClose}>
                   Close
                 </Button>
-                <Button style={{backgroundColor: "#ffadc1", border:"none"}} variant="primary" onClick={this.handleSubmit}>
+                <Button
+                  style={{ backgroundColor: "#ffadc1", border: "none" }}
+                  variant="primary"
+                  onClick={this.handleSubmit}
+                >
                   Create
                 </Button>
               </Modal.Footer>
@@ -142,13 +162,16 @@ export default class AddRoom extends Component {
               flex: "1",
               display: "flex",
               flexDirection: "column",
-              border:"10px solid #ffadc1",
+              border: "10px solid #ffadc1",
             }}
           >
             {this.state.selectedRoom === null ? (
               <div>채팅방을 선택하세요</div>
             ) : (
-              <ChatRoom name={this.state.selectedRoom} />
+              <ChatRoom
+                name={this.state.selectedRoom}
+                roomid={this.state.roomid}
+              />
             )}
             {/* roomname이 선택되면 그에 따른 채팅방을 렌더링해야함 */}
           </div>
