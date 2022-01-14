@@ -27,7 +27,7 @@ form 작성시 firebase에 회원정보가 저장된다.
 <h2>참고자료</h2>
 Routing 관련(로그인 안하면 접근못하는 기능): https://www.daleseo.com/react-router-basic/<br/>
 Firebase 공식문서: https://firebase.google.com/docs/database/web/read-and-write?hl=ko <br/>
-React, Firebase를 사용한 채팅 참고: shorturl.at/bipDY, shorturl.at/pIPYZ <br/>
+React, Firebase를 사용한 채팅 참고: https://shorturl.at/bipDY , https://shorturl.at/pIPYZ <br/>
 
 <hr/>
 # Getting Started with Create React App
