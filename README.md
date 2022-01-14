@@ -25,9 +25,9 @@ form 작성시 firebase에 회원정보가 저장된다.
 추가로 로그인을 하지 않고 채팅방 페이지에 접근을 시도(권한x)할 경우 접근을 차단하고 메인화면으로 돌아가도록 구현하였다.
 
 <h2>참고자료</h2>
-Routing 관련(로그인 안하면 접근못하는 기능): https://www.daleseo.com/react-router-basic/
-Firebase 공식문서: https://firebase.google.com/docs/database/web/read-and-write?hl=ko
-React, Firebase를 사용한 채팅 참고: shorturl.at/bipDY shorturl.at/pIPYZ
+Routing 관련(로그인 안하면 접근못하는 기능): https://www.daleseo.com/react-router-basic/<br/>
+Firebase 공식문서: https://firebase.google.com/docs/database/web/read-and-write?hl=ko <br/>
+React, Firebase를 사용한 채팅 참고: shorturl.at/bipDY, shorturl.at/pIPYZ <br/>
 
 <hr/>
 # Getting Started with Create React App
