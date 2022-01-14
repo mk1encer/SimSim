@@ -1,4 +1,4 @@
-<h1>채팅 애플리케이션 SIMSIM CHAT!</h1>
+<h1>채팅 애플리케이션 SIMSIM CHAT</h1>
 
 React JS와 Firebase를 사용하여 간단한 채팅방을 구현하였다.
 
