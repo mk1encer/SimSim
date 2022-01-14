@@ -19,7 +19,7 @@ const ChatRoom = (props) => {
   };
 
   function sendChat(data) {
-    if (props.roomid !== "") {
+    if (props.roomid !== "" && data.message !== "") {
       return update(
         child(ref(db, "/chatRooms/" + props.roomid + "/message"), data.id),
         {
@@ -54,6 +54,7 @@ const ChatRoom = (props) => {
 
     onChildAdded(temp, (DataSnapshot) => {
       chats.push(DataSnapshot.val());
+      sendChat({});
       setChats(chats);
     });
     return chats;
