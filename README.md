@@ -1,4 +1,4 @@
-<h1>SimSim</h1>
+<h1>채팅 애플리케이션 SIMSIM CHAT!</h1>
 
 React JS와 Firebase를 사용하여 간단한 채팅방을 구현하였다.
 
@@ -13,10 +13,16 @@ form 작성시 firebase에 회원정보가 저장된다.
 로그인 하면 채팅방 목록을 볼 수 있고, 원하는 채팅방을 선택하여 입장하거나 새로운 채팅방을 만들 수 있다.
 
 <img width="960" alt="4" src="https://user-images.githubusercontent.com/62545246/149511296-531a2a8f-ef60-4ba0-b08e-9775a3369582.PNG">
+채팅방을 선택하면 기존의 채팅들을 firebase에서 불러와서 보여준다.
 
 <img width="960" alt="5" src="https://user-images.githubusercontent.com/62545246/149511383-4d0dbc02-a7bd-4525-aa97-bc8ee0dcfddf.PNG">
-좌측 + 버튼을 눌러 방을 생성할 수 있다.
+원하는 채팅방이 없을 경우 좌측 + 버튼을 눌러 방을 생성할 수 있다.
 
+<img width="960" alt="6" src="https://user-images.githubusercontent.com/62545246/149511447-66f7ec2f-4bfc-4db4-8477-fd6d5e5816c3.PNG">
+새로운 채팅방에서 채팅을 시작할 수 있다.
+
+사용종료 후 로그아웃을 원하면 로그아웃 버튼을 클릭하면 초기화면으로 돌아간다.
+추가로 로그인을 하지 않고 채팅방 페이지에 접근을 시도(권한x)할 경우 접근을 차단하고 메인화면으로 돌아가도록 구현하였다.
 
 <hr/>
 # Getting Started with Create React App
